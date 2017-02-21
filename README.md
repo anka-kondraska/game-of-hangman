@@ -13,8 +13,8 @@ Game of Hangman
 
 ## <a name="tech-stack"></a>Tech Stack
 
-__Frontend:__ D3, Chart.js, Jinja2, Javascript, jQuery, Bootstrap <br/>
-__Backend:__ Python, NetworkX, Flask, PostgreSQL, SQLAlchemy, bcrypt, faker, pandas, 
+__Frontend:__ React.js, Javascript, Bootstrap <br/>
+__Backend:__ Python, Flask,
 
 ## <a name="features"></a>Features
 
@@ -66,7 +66,7 @@ $ python -i model.py
 ## <a name="demo"></a>Demo
 
 ## <a name="future"></a>TODO
-* Multiuser functionality
+* Multi-user functionality
 
 
 
