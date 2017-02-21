@@ -1,9 +1,6 @@
 from flask import Flask, jsonify, render_template, request
-from flask_cors import CORS, cross_origin
-import random
-
-import requests
-
+from flask_cors import CORS
+import helper_functions
 
 app = Flask(__name__)
 CORS(app)
@@ -16,22 +13,17 @@ def homepage():
 
 @app.route("/random_word.json")
 def get_wordlist():
-    """Get word list - API call"""
+    """Singular random word any difficulty and length
+       served as json from LinkedIn Word Dictionary API"""
 
     URL = "http://linkedin-reach.hagbpyjegb.us-west-2.elasticbeanstalk.com/words"
-    response = requests.get(URL)
-    # print response.headers['content-type']
-    words = response.text
-    words = words.replace('\n', ' ')
-    random_word = random.choice(words.split())
-    print random_word
-    # print words
+    random_word = helper_functions.get_random_word_from_API(URL)
     return jsonify(word=random_word)
 
 
 
 
-app.run(debug=True)
+app.run(debug=True, host='0.0.0.0')
 
 
 
