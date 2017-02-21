@@ -35,7 +35,7 @@ $ git clone https://github.com/skakanka/game-of-hangman.git
 ```
 Create a virtual environment:
 ```
-$ virtualenv env
+$ virtualenv venv
 ```
 Activate the virtual environment:
 ```
