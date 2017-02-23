@@ -65,10 +65,27 @@ Open your web browser, preferably Chrome and proceed to http://0.0.0.0:5000/
 Now, You too have your own Game of Hangman running in your browser.
 Default word difficulty is set to 1, on a scale from 1 to 10 - being the hardest.
 
+To remove, first we need to remove the local repo. 
+Make sure you are still in the game-of-hangman directory when doing this:
+```
+rm -rf .git
+```
+Then move one directory above:
+```
+cd ..
+```
+And remove the game-of-hangman dir:
+```
+rm -r game-of-hangman/
+```
+
 ## <a name="demo"></a>Demo
 
 ## <a name="future"></a>TODO
 * Multi-user functionality
+* Leaderboard
+* testing
+* 
 
 
 
