@@ -1,5 +1,13 @@
 Game of Hangman
 
+In writing this game of Hangman, I used it as an opportunity to learn React.js.
+It is my first attempt.
+
+The basic rules of the game are:
+* computer chosses a random word and the user tries to guess it one letter at a time
+* computer chooses a word from LinkedIn Word Dictionary API, as default the word difficuluty is set at 1
+* user loses the game if they guess the letters incorrectly 6 times - there are 6 incorrect guesses allowed
+* the user wins if they guess all letters without running out of incorrect guesses first
 
 
 ## Table of Contents📖
@@ -13,7 +21,7 @@ Game of Hangman
 
 ## <a name="tech-stack"></a>Tech Stack
 
-__Frontend:__ React.js, Javascript, Bootstrap <br/>
+__Frontend:__ React.js, Javascript, Bootstrap, CSS, HTML, jQuery <br/>
 __Backend:__ Python, Flask,
 
 ## <a name="features"></a>Features

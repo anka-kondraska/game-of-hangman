@@ -6,151 +6,25 @@
           rel="stylesheet">
     <link rel="stylesheet" href="../static/hangman.css">
 
+    <script src="http://code.jquery.com/jquery.js"></script>
+
+
     <script src="http://unpkg.com/react/dist/react.js"></script>
     <script src="http://unpkg.com/react-dom/dist/react-dom.js"></script>
-    <!-- not all browsers support the new AJAX fetch API, ao load a polyfill -->
+    <!-- AJAX fetch API polyfill -->
     <script src="http://unpkg.com/whatwg-fetch"></script>
 
     <script src="http://unpkg.com/babel-standalone"></script>
 
-    <!-- <script src="../static/wordlist.js"></script> -->
-    <!-- // <script src="../static/gamebutton.jsx" type="text/jsx"></script> -->
-    <!-- // <script src="../static/hangman.jsx" type="text/jsx"></script> -->
+    <script src="../static/hangman.jsx" type="text/jsx"></script>
 
 </head>
 <body>
 
-<div id="game"></div>
+<div id="game">
+     <input type="hidden" id="level" value="{{session['level']}}">
+</div>
 
 
 </body>
-<script type="text/jsx">
-"use strict";
-
-var GameButton = React.createClass({
-
-    onClick: function (evt) {
-        this.props.handleChoice(this.props.letter);
-    },
-
-    render: function () {
-        return (
-            <button onClick={ this.onClick }
-                    disabled={ this.props.isDisabled }>
-                { this.props.letter }
-            </button>
-        );
-    },
-});
-
-var StatusBox = React.createClass({ // success warning info danger Bootstrap alerts
-
-    render: function () {
-        if (this.props.text)
-            return (
-                <div className={"alert alert-trim alert-" + this.props.type + " alert-dismissable center-block"}>
-                 <a href="/" className="close" data-dismiss="alert" aria-label="close">&times;</a>
-                    { this.props.text }
-                </div>
-            );
-        else
-            return null;   // no message to show
-    }
-});
-
-var Hangman = React.createClass({
-
-    getInitialState: function () {
-        return {numRemain: 6, allGuesses: new Set(), incorrect_guess: new Set(), statusText:'', statusType:'', isDisabled: false};
-    },
-
-    guessWord: function () {  // "app_e" for "apple"
-        var currentWord = "";
-        
-
-        for (var ltr of this.props.secretWord)
-            currentWord += this.state.allGuesses.has(ltr) ? ltr : "_";
-
-        return currentWord;
-    
-    },
-
-    handleGuess: function (letter) {
-        this.state.allGuesses.add(letter);
-        this.setState({allGuesses: this.state.allGuesses}, function(){
-            if (this.props.secretWord.split('').every(letter => this.state.allGuesses.has(letter)))
-            this.setState({statusText: "You Win! Click x to reload.", statusType: "success"});
-
-        });
-
-
-        if (this.props.secretWord.indexOf(letter) === -1)
-            this.setState({'numRemain': this.state.numRemain - 1}, function(){
-                if (this.state.numRemain === 0)
-                this.setState({statusText: "Game Over! Click x to reload.", statusType: "danger"});
-            });
-            
-
-        if (this.props.secretWord.indexOf(letter) === -1)
-            this.state.incorrect_guess.add(letter);
-            this.setState({incorrect_guess: this.state.incorrect_guess});
-        
-    },
-
-
-    renderButtons: function () {
-        var buttons = [];
-
-        for (var ltr of "abcdefghijklmnopqrstuvwxyz")
-            buttons.push(
-                <GameButton key={ ltr } letter={ ltr }
-                        isDisabled={ this.state.allGuesses.has(ltr) 
-                            || this.state.statusText === "Game Over! Click x to reload." 
-                            || this.state.statusText === "You Win! Click x to reload."}
-                        handleChoice={ this.handleGuess } />);
-
-        return <div className="letters">{ buttons }</div>;
-    },
-
-
-    render: function () {
-        return (
-            <div className="Hangman">
-                // <h1>Hangman!</h1>
-                <img src={ "../static/hangman"+this.state.numRemain+".jpg" }/>
-                <p className="guess">
-                    Guesses Remaining: { this.state.numRemain }
-                </p>
-                <p className="word">{ this.guessWord() }</p>
-                <p className="guess">Incorrect Guesses: { this.state.incorrect_guess }</p>
-                <StatusBox type={ this.state.statusType } text={ this.state.statusText } />
-                { this.renderButtons() }
-            </div>
-        )
-    },
-});
-var word;
-fetch('http://localhost:5000/random_word.json')
-  .then(function(response) {
-    return response.json();
-  }).then(function(json) { 
-  
-    console.log("HERE",json.word);
-    word = json.word;
-    return word
-    
-  });
-
-setTimeout(func, 6000);
-function func() {
-    console.log("secretWord = " + word);
-    ReactDOM.render(
-    <Hangman secretWord={word}/>,
-    document.getElementById('game'));
-}
-
-
-</script>
-
-
 </html>
