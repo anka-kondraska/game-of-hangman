@@ -1,11 +1,11 @@
 Game of Hangman
 
-In writing this game of Hangman, I used it as an opportunity to learn React.js.
+In writing this Game of Hangman, I used it as an opportunity to learn React.js.
 It is my first attempt.
 
 The basic rules of the game are:
-* computer chosses a random word and the user tries to guess it one letter at a time
-* computer chooses a word from LinkedIn Word Dictionary API, as default the word difficuluty is set at 1
+* computer chooses a random word and the user tries to guess it one letter at a time
+* computer chooses a word from LinkedIn Word Dictionary API, as a default the word difficuluty is set to 1 on a scale 1-10, 10 being the hardest
 * user loses the game if they guess the letters incorrectly 6 times - there are 6 incorrect guesses allowed
 * the user wins if they guess all letters without running out of incorrect guesses first
 
@@ -15,7 +15,6 @@ The basic rules of the game are:
 * [Tech Stack](#tech-stack)
 * [Features](#features)
 * [Setup/Installation](#installation)
-* [Demo](#demo)
 * [To-Do](#future)
 * [License](#license)
 
@@ -25,6 +24,7 @@ __Frontend:__ React.js, Javascript, Bootstrap, CSS, HTML, jQuery <br/>
 __Backend:__ Python, Flask,
 
 ## <a name="features"></a>Features
+
 
 
 
@@ -79,14 +79,13 @@ And remove the game-of-hangman dir:
 rm -r game-of-hangman/
 ```
 
-## <a name="demo"></a>Demo
-
 ## <a name="future"></a>TODO
+* Testing
+* Currently transpiling JSX in browser via Babel, need to convert JSX to JavaScript via command line
+* Add user input for word length
 * Multi-user functionality
 * Leaderboard
-* testing
-* 
-
+* Extend guessing beyond letters to words, sentences, numbers
 
 
 ## <a name="license"></a>License
