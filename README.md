@@ -34,7 +34,7 @@ __Backend:__ Python, Flask,
 
 - Python 2.7
 
-To have this app running on your local computer, please follow the below steps:
+To have this app running on your local computer, please follow the steps below:
 
 Clone repository from Github into your directory:
 ```
@@ -60,9 +60,10 @@ Run the run_server.py file.
 ```
 $ python run_server.py
 ```
-Open your web browser, preferably Chrome, and proceed to http://0.0.0.0:5000/
+Open your web browser, preferably Chrome and proceed to http://0.0.0.0:5000/
 
 Now, You too have your own Game of Hangman running in your browser.
+Default word difficulty is set to 1, on a scale from 1 to 10 - being the hardest.
 
 ## <a name="demo"></a>Demo
 
