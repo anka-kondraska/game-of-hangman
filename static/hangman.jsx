@@ -152,28 +152,19 @@ var Hangman = React.createClass({
     
     },
 
-    handleWinningGuess: function (letter) {
+    handleGuess: function (letter) {
         this.state.allGuesses.add(letter);
         this.setState({allGuesses: this.state.allGuesses}, function(){
             if (this.props.secretWord.split('').every(letter => this.state.allGuesses.has(letter)))
-            this.setState({statusText: "You Win! Click x to reload.", statusType: "success"});
+            this.setState({statusText: "You Win! Click x to reload.", statusType: "success"})});
 
-        });
-    },
-
-    isLosing: function (letter) {
-      if (this.props.secretWord.indexOf(letter) === -1)
+       if (this.props.secretWord.indexOf(letter) === -1)
             this.setState({'numRemain': this.state.numRemain - 1}, function(){
                 if (this.state.numRemain === 0)
-                this.setState({statusText: "Game Over! Click x to reload.", statusType: "danger"});
-            });
-    },
-
-    incorrectLetter: function (letter) {
+                this.setState({statusText: "Game Over! Click x to reload.", statusType: "danger"})});
       if (this.props.secretWord.indexOf(letter) === -1)
             this.state.incorrect_guess.add(letter);
             this.setState({incorrect_guess: this.state.incorrect_guess});
-
         
     },
 
@@ -186,7 +177,7 @@ var Hangman = React.createClass({
                         isDisabled={ this.state.allGuesses.has(ltr) 
                             || this.state.statusText === "Game Over! Click x to reload." 
                             || this.state.statusText === "You Win! Click x to reload."}
-                        handleChoice={ this.handleWinningGuess } />);
+                        handleChoice={ this.handleGuess } />);
 
         return <div className="letters">{ letters }</div>;
     },
