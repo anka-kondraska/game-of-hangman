@@ -10,6 +10,8 @@ The basic rules of the game are:
 * the user wins if they guess all letters without running out of incorrect guesses first
 
 
+
+
 ## Table of Contents📖
 
 * [Tech Stack](#tech-stack)
@@ -25,7 +27,15 @@ __Backend:__ Python, Flask,
 
 ## <a name="features"></a>Features
 
+The game currently accesses words from LinkedIn Word Dictionary API.
 
+In the middle of the page, there are _ for each letter in the secret word. 
+
+On the right handside of the homepage, you will see letter buttons for each letter of the alphabet. These become disabled after a click. The images on the right hand side change depending whether the guess was incorrect. Progressing to the ultimate end of the game image. 
+
+On the left hand side there is a counter with the number of guesses remaining, a list of incorrect guesses, and radio buttons 1-10 corresponding to the level of word difficulty. The default level is 1, the easiest. 
+
+Secret escape. If you are feeling frustrated playing the game, each secret word is printed to the console - if you know how to get there.
 
 
 ## <a name="installation"></a>Setup/Installation
