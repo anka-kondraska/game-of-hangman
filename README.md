@@ -12,14 +12,14 @@ The basic rules of the game are:
 
 ## Table of Contents📖
 
-* [Thought Process](#thought-process)
+* [About Assignment](#about-assignment)
 * [Tech Stack](#tech-stack)
 * [Features](#features)
 * [Setup/Installation](#installation)
 * [To-Do](#future)
 * [License](#license)
 
-## <a name="thought-process"></a>Thought Process
+## <a name="about-assignment"></a>About Assignment
 
 ####Thought Process:
 Since I am familiar with flask, I used it on the back-end. There are two flask routes. One serving the homepage where the game is played and the other serving the secret word as json randomly chosen from the API call response. The difficulty level parameter is captured in flask's session from the user radio buttons form input on the homepage. If the user has not adjusted the difficulty level it is set to 1 as default, the easiest, to initially boost morale.
