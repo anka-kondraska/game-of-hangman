@@ -9,10 +9,17 @@ The basic rules of the game are:
 * user loses the game if they guess the letters incorrectly 6 times - there are 6 incorrect guesses allowed
 * the user wins if they guess all letters without running out of incorrect guesses first
 
-####Requirements:
-The main requirements for this game are met: words are accessed from LinkedIn Word Dictionary API, the length of the secret word is displayed in the middle of the page, as the user guesses letters correct occurrences of the letter are displayed in the word, unknown remain hidden, number of guesses remaining is displayed as well, as is a list of incorrect guesses.
 
-The extensions implemented are: the changing hangman images on the right hand side as user makes incorrect guesses, as well as adjusting level of word difficulty based on user input, closing the winning/losing alert reloads the page so the user can continue playing.
+## Table of Contents📖
+
+* [Thought Process](#thought-process)
+* [Tech Stack](#tech-stack)
+* [Features](#features)
+* [Setup/Installation](#installation)
+* [To-Do](#future)
+* [License](#license)
+
+## <a name="thought-process"></a>Thought Process
 
 ####Thought Process:
 Since I am familiar with flask, I used it on the back-end. There are two flask routes. One serving the homepage where the game is played and the other serving the secret word as json randomly chosen from the API call response. The difficulty level parameter is captured in flask's session from the user radio buttons form input on the homepage. If the user has not adjusted the difficulty level it is set to 1 as default, the easiest, to initially boost morale.
@@ -21,19 +28,16 @@ Since this is a game, there is a significant amount of user interaction and chan
 
 There are separate React components for the radio buttons, letters of the alphabet, winning/losing alerts and the game itself. The radio buttons are part of a form so that the user chosen level of difficulty can be captured in a session and an API call with the user input can be made, then fetched allowing all components to be re-rendered based on the new secret word. I chose radio buttons because I was trying out different user input methods and how they functioned in React.js. The letter buttons - once clicked become disabled. I was considering a text area for this but buttons seemed a better choice without the need to verify user input.The hangman images are re-rendered with each incorrect guess. Once the user loses/wins an alert appears and all buttons are disabled. Closing the alert box reloads the page defaulting the level of difficulty to 1.
 
+####Assignment Requirements:
+The main requirements for this game are met: words are accessed from LinkedIn Word Dictionary API, the length of the secret word is displayed in the middle of the page, as the user guesses letters correct occurrences of the letter are displayed in the word, unknown remain hidden, number of guesses remaining is displayed as well, as is a list of incorrect guesses.
 
-## Table of Contents📖
-
-* [Tech Stack](#tech-stack)
-* [Features](#features)
-* [Setup/Installation](#installation)
-* [To-Do](#future)
-* [License](#license)
+The extensions implemented are: the changing hangman images on the right hand side as user makes incorrect guesses, as well as adjusting level of word difficulty based on user input, closing the winning/losing alert reloads the page so the user can continue playing.
 
 ## <a name="tech-stack"></a>Tech Stack
 
 __Frontend:__ React.js, Javascript, Bootstrap, CSS, HTML, jQuery <br/>
 __Backend:__ Python, Flask
+
 
 ## <a name="features"></a>Features
 
