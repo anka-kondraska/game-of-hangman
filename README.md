@@ -32,14 +32,17 @@ __Backend:__ Python, Flask,
 
 ####Requirements:
 
-- React.js
 - Python 2.7
 
 To have this app running on your local computer, please follow the below steps:
 
-Clone repository:
+Clone repository from Github into your directory:
 ```
 $ git clone https://github.com/skakanka/game-of-hangman.git
+```
+Go to game-of-hangman directory:
+```
+$ cd game-of-hangman
 ```
 Create a virtual environment:
 ```
@@ -47,30 +50,20 @@ $ virtualenv venv
 ```
 Activate the virtual environment:
 ```
-$ source env/bin/activate
+$ source venv/bin/activate
 ```
 Install dependencies:
 ```
 $ pip install -r requirements.txt
 ```
-Get your own Google Maps API key and save it to a file `secrets.py`.
+Run the run_server.py file.
+```
+$ python run_server.py
+```
+Open your web browser, preferably Chrome, and proceed to http://0.0.0.0:5000/
 
-Create database 'barternet'.
-```
-$ createdb -E UTF8 -T template0 --locale=en_US.utf8 barternet
-```
-Create your database tables and seed example data.
-```
-$ python barter_network/seed.py
-```
-Run the app from the command line.
-```
-$ python runserver.py
-```
-If you want to use SQLAlchemy to query the database, run in interactive mode
-```
-$ python -i model.py
-```
+Now, You too have your own Game of Hangman running in your browser.
+
 ## <a name="demo"></a>Demo
 
 ## <a name="future"></a>TODO
