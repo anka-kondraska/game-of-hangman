@@ -9,6 +9,13 @@ The basic rules of the game are:
 * user loses the game if they guess the letters incorrectly 6 times - there are 6 incorrect guesses allowed
 * the user wins if they guess all letters without running out of incorrect guesses first
 
+The main requirements for this game are met: words are accessed from LinkedIn Word Dictionary API, the length of the secret word is displayed in the middle of the page, as the user guesses letters, correct occurances of the letter are displayed in the word, unknown remain hidden, number of guesses remaining is displayed as well, as is a list of incorrect guesses.
+
+The extensions implemented are: the changing hangman images on the right hand side as user makes incorrect guesses, as well as adjusting level of word difficulty based on user input on the left hand side of the page.
+
+Since I am really familiar with flask, I used it on the back-end. There are two flask routes. One serving the homepage where the game is played and the other serving the secret word as json randomly chosen from the API call response. The difficulty level parameter is captured in flask's session from the user radio buttons form input on the homepage. If the user has not adjusted the difficulty level it is set to 1 as default, the easiest, to initially boost morale.
+
+Since this is a game, there is a significant amount of user interaction and changes to the DOM. I wanted to try a framework that captured the state easily and allowed for more flexibility in what different types of features where implemented and not focusing on how they were implemented. Maintaining state was crucial as it is a game. I chose React.js as it is friendly to beginners, declarative, flexible and highly efficient.
 
 
 
@@ -23,7 +30,7 @@ The basic rules of the game are:
 ## <a name="tech-stack"></a>Tech Stack
 
 __Frontend:__ React.js, Javascript, Bootstrap, CSS, HTML, jQuery <br/>
-__Backend:__ Python, Flask,
+__Backend:__ Python, Flask
 
 ## <a name="features"></a>Features
 
@@ -31,7 +38,7 @@ The game currently accesses words from LinkedIn Word Dictionary API.
 
 In the middle of the page, there are _ for each letter in the secret word. 
 
-On the right handside of the homepage, you will see letter buttons for each letter of the alphabet. These become disabled after a click. The images on the right hand side change depending whether the guess was incorrect. Progressing to the ultimate end of the game image. 
+On the right handside of the homepage, you will see letter buttons for each letter of the alphabet. These become disabled after a click. The images on the right hand side change depending whether the guess was incorrect, same holds true for the _ . The images progress to the ultimate end of the game image. 
 
 On the left hand side there is a counter with the number of guesses remaining, a list of incorrect guesses, and radio buttons 1-10 corresponding to the level of word difficulty. The default level is 1, the easiest. 
 
