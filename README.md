@@ -3,6 +3,8 @@ Game of Hangman
 In writing this Game of Hangman, I used it as an opportunity to learn React.js.
 This is my first attempt.
 
+This is a web application with flask back-end and React.js front-end.
+
 The basic rules of the game are:
 * computer chooses a random word and the user tries to guess it one letter at a time
 * computer chooses a word from LinkedIn Word Dictionary API, as a default the word difficulty is set to 1 on a scale 1-10, 10 being the hardest
