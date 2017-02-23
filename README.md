@@ -107,6 +107,31 @@ And remove the game-of-hangman dir:
 rm -r game-of-hangman/
 ```
 
+####GoogleDrive Instructions:
+
+If you are accessing this through GoogleDrive. After downloading the folder, using the command line proceed to the directory where this folder is saved.
+
+```
+$ cd game-of-hangman
+```
+Create a virtual environment:
+```
+$ virtualenv venv
+```
+Activate the virtual environment:
+```
+$ source venv/bin/activate
+```
+Install dependencies:
+```
+$ pip install -r requirements.txt
+```
+Run the run_server.py file.
+```
+$ python run_server.py
+```
+Open your web browser, preferably Chrome and proceed to http://0.0.0.0:5000/
+
 ## <a name="future"></a>TODO
 * Testing
 * Currently transpiling JSX in browser via Babel, need to convert JSX to JavaScript via command line
