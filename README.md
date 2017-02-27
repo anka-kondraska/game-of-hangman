@@ -33,7 +33,7 @@ There are separate React components for the radio buttons, letters of the alphab
 ####Assignment Requirements:
 The main requirements for this game are met: words are accessed from LinkedIn Word Dictionary API, the length of the secret word is displayed in the middle of the page, as the user guesses letters correct occurrences of the letter are displayed in the word, unknown remain hidden, number of guesses remaining is displayed as well, as is a list of incorrect guesses.
 
-The extensions implemented are: the changing hangman images on the right hand side as user makes incorrect guesses, as well as adjusting level of word difficulty based on user input, closing the winning/losing alert reloads the page so the user can continue playing.
+The extensions implemented are: the changing hangman images on the right hand side as user makes incorrect guesses, as well as adjusting level of word difficulty based on user input, closing the winning/losing alert reloads the page so the user can continue playing, at game over full word appears with guessed letters in white and unguessed in red.
 
 ## <a name="tech-stack"></a>Tech Stack
 
