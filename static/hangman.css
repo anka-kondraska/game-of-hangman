@@ -8,6 +8,15 @@ img {
     top:150px;
     right:100px;
 }
+.red {
+    color:red !important;
+    display: inline;
+}
+
+.white {
+    color:white!important;
+    display: inline;
+}
 
 .alert-trim {
   /*display: inline-block;*/
@@ -35,7 +44,7 @@ img {
     text-align: center;
     text-decoration: none;
     position: relative;
-    /*display: inline-block;*/
+    display: inline-block;
     font-size: 16px;
     bottom:30px;
     left:80px;
@@ -49,9 +58,10 @@ img {
     color: white;
 }
 
-.Hangman .word {
+.Hangman #word {
     position: relative;
     width: 300px;
+    height:50px;
     top: 240px;
     left: 350px;
     color: white;

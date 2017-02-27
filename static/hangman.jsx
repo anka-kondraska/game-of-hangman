@@ -144,13 +144,48 @@ var Hangman = React.createClass({
 
     guessLetter: function () {  
         var currentWord = "";
-        
-        for (var ltr of this.props.secretWord)
-            currentWord += this.state.allGuesses.has(ltr) ? ltr : "_";
+        var answer = "";
 
+        if (this.state.numRemain === 0) {
+            // currentWord = this.props.secretWord;
+            for (var ltr of this.props.secretWord)
+                if (this.state.allGuesses.has(ltr)) {
+                    answer += "<span class='white'>"+ltr+"</span>"
+
+                } else {
+
+                    answer += "<span class='red'>"+ltr+"</span>"
+                }
+            console.log(answer);
+
+            document.getElementById('word').innerHTML = answer;
+            // document.getElementById('word').getElementsByClassName('red').setAttribute('style', 'color:red');
+
+
+        } else {
+             for (var ltr of this.props.secretWord)
+                currentWord += this.state.allGuesses.has(ltr) ? ltr : "_";
+
+        }
         return currentWord;
-    
+  
     },
+
+    // renderAnswer: function (currentWord) {
+    //   var answer = "";
+
+    //   for (var ltr of this.props.secretWord)
+    //     if (this.state.allGuesses.has(ltr))
+    //       answer += "<div class='white'>"+ltr+"</div>"
+
+    //     else {
+
+    //           answer += "<div class='red'>"+ltr+"</div>"
+    //       }
+    //       console.log(answer);
+
+    //     document.getElementsByClassName("word").innerHTML = answer;
+    // },
 
     handleGuess: function (letter) {
         this.state.allGuesses.add(letter);
@@ -190,7 +225,9 @@ var Hangman = React.createClass({
                 <p className="guess">
                     Guesses Remaining: { this.state.numRemain }
                 </p>
-                <p className="word">{ this.guessLetter() }</p>
+                <p id="word">{this.guessLetter()}</p>
+                
+
                 <p className="guess">Incorrect Guesses: { this.state.incorrect_guess }</p>
                 <Alert type={ this.state.statusType } text={ this.state.statusText } />
                 { this.renderLetters() }

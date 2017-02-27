@@ -3,3 +3,5 @@ hangman.py
 
 venv
 
+*.txt
+
